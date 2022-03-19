@@ -10,7 +10,8 @@ import Foundation
 let languages: [String: [String: Any]] = [
     "default": [:],
     "jelly": jellyLanguage,
-    "swift": swiftLanguage
+    "swift": swiftLanguage,
+    "pixelet": pixeletLanguage,
 ]
 
 let defaultLanguage: [String: Any] = [
@@ -145,5 +146,36 @@ let swiftLanguage: [String: Any] = [
         "relevance": 5,
         "options": [NSRegularExpression.Options.dotMatchesLineSeparators],
         "multiline": true
+    ],
+]
+
+let pixeletLanguage: [String: Any] = [
+    "function": [
+        "regex": "([a-zA-Z_0-9\"\\[\\]\\+-]+)\\(.*?\\)",//\\. -Removed
+        "group": 1,
+        "relevance": 0,
+        "options": [],
+        "multiline": false
+    ],
+    "string": [
+        "regex": #"["'].*?["']"#,
+        "group": 0,
+        "relevance": 6,
+        "options": [],
+        "multiline": false
+    ],
+    "comment": [
+        "regex": "\\/\\/.*?(\n|$)",
+        "group": 0,
+        "relevance": 4,
+        "options": [],
+        "multiline": false
+    ],
+    "keyword": [
+        "regex": "\\d+",
+        "group": 0,
+        "relevance": 0,
+        "options": [],
+        "multiline": false
     ],
 ]
