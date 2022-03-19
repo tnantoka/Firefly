@@ -103,6 +103,8 @@ public class Syntax {
     func setFont(to name: String) {
         if name == "system" {
             currentFont = FireflyFont.systemFont(ofSize: fontSize)
+        } else if name == "monospacedSystem" {
+            currentFont = FireflyFont.monospacedSystemFont(ofSize: fontSize, weight: .regular)
         } else {
             currentFont = FireflyFont(name: name, size: fontSize) ?? FireflyFont.systemFont(ofSize: fontSize)
         }
