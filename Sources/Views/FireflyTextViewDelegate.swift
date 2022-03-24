@@ -19,6 +19,10 @@ public protocol FireflyDelegate: AnyObject {
 
     func textViewDidBeginEditing(_ syntaxTextView: FireflyTextView)
     
+    func didBeginEditing(_ syntaxTextView: FireflyTextView)
+
+    func didEndEditing(_ syntaxTextView: FireflyTextView)
+
     func didClickLink(_ link: String)
 
     var cursorPositionChange: ((_ cursorPosition: CGRect?) -> Void)? { get }
@@ -35,6 +39,10 @@ public protocol FireflyDelegate: AnyObject {
 public extension FireflyDelegate {
 
     func didChangeText(_ syntaxTextView: FireflyTextView) { }
+
+    func didBeginEditing(_ syntaxTextView: FireflyTextView) { }
+
+    func didEndEditing(_ syntaxTextView: FireflyTextView) { }
 
     func didChangeSelectedRange(_ syntaxTextView: FireflyTextView, selectedRange: NSRange) { }
 

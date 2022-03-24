@@ -317,9 +317,13 @@ extension FireflySyntaxView: TextViewDelegate {
     #if canImport(UIKit)
     /// Calls back to the delegate when the editor begins editing
     public func textViewDidBeginEditing(_ textView: UITextView) {
-        delegate?.textViewDidBeginEditing(self.textView)
+        delegate?.didBeginEditing(self.textView)
     }
-    
+
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        delegate?.didEndEditing(self.textView)
+    }
+
     /// Handles highlighting the correct amount of the view when text changes
     public func textViewDidChange(_ textView: UITextView) {
         guard let tView = textView as? FireflyTextView  else { return }
